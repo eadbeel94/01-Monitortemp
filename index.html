@@ -1,0 +1,397 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="./favicon.ico" />
+	<title>MONITOR MAIN</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<style>
+		.borde{height: 300px}
+		.graficon{height: 270px}
+		.faults{height: 30px}
+	</style>
+	
+</head>
+	
+<body class="main_01">
+
+<div class="container-fluid">
+	<br>
+	
+	<div id="TITLE" class="row">
+		<div class="col-12 card">
+
+			<div class="row justify-content-around">
+				<div class="col-lg-3">
+			  		<img src="./Diapositiva3.png" height="80px" class="float-left" alt="">
+				</div>
+				<div class="col-lg-6 card align-self-center text-center ">
+				 	<h2>SISTEMA DE MONITOREO DE TEMPERATURA</h2>
+				</div>
+				<div class="col-lg-2">
+					<img src="./Diapositiva4.png" height="75px" class="float-right" alt="">
+				</div>	
+				
+			</div>
+			
+		</div>	
+	</div>
+	<br>
+	
+	<div id="PROMPT_1" class="row">
+		<div class="col-12 card">
+
+			<div class="row justify-content-around ">
+
+				<div id="B_FAULT_1" class="col-lg-2 card overflow-hidden">
+				 	<h3 id="DATE_1" class="faults" align=""></h3>
+				</div>
+				
+				<div id="B_FAULT_2" class="col-lg-10 card overflow-hidden">
+				 	<h3 id="FAULT_1" class="faults"></h3>
+				</div>
+
+				
+			</div>
+			
+		</div>	
+	</div>
+	<br>	
+	
+	<div id="SECTION_01" class="row">
+		
+		<div id="LEFT" class="col-lg-2">
+			
+			<div class="btn-group-vertical d-flex flex-column overflow-auto">
+  		
+				<a class="btn btn-outline-secondary overflow-auto" role="button" >INICIO</a>
+				<a class="btn btn-outline-secondary overflow-auto" role="button" href="./z_GRAPHS.html">GRAFICAS</a>
+				<a class="btn btn-outline-secondary overflow-auto" role="button" href="./z_HISTORY.html">HISTORIAL</a>
+				<a class="btn btn-outline-secondary overflow-auto" role="button" href="./z_CONTACTS.html">CONTACTO</a>
+			</div>
+			
+			<br>
+			
+
+		</div>
+		
+		<div id="RIGHT" class="col-lg-10">
+		<div class="row">
+				
+				<div class="col-md-1"></div>
+			
+				<div id="ENGINES" class="col-md-10">
+				<div class="row">
+						
+					<div id="M11" class="col-12 col-lg-6 text-center card borde">
+									<h3 id="MOTOR_NAME_11">MOTOR 1</h3>	
+						<div class="row graficon ">
+							<div class="col-5 card align-items-end align-items-center">
+								<div class="flex-row justify-content-md-center">
+									<br>
+									<h4 id="MOTOR_TEMP_11" class="">100 °C</h4>
+									<br><br>
+									<img src="./image_05.png" height="110px" width="110px" alt="">
+								</div>
+							</div>
+							<div id="MOTOR_BARR_11" class="col-7 card " align="center">
+									<!-- Aqui ingreso a la grafica-->
+							</div>	
+						</div>	
+					</div>
+										
+					<div id="M12" class="col-12 col-lg-6 text-center card borde">
+									<h3 id="MOTOR_NAME_12">MOTOR 2</h3>
+						<div class="row graficon">
+							<div class="col-5 card align-items-end align-items-center">
+								<div class="flex-row justify-content-md-center">
+									<br>
+									<h4 id="MOTOR_TEMP_12" class="">100 °C</h4>
+									<br><br>
+									<img src="./image_05.png" height="110px" width="110px"  alt="">
+									
+								</div>
+							</div>
+							<div id="MOTOR_BARR_12" class="col-7 card" align="center">
+									<!-- Aqui ingreso a la grafica-->
+							</div>	
+						</div>	
+					</div>
+
+					
+					
+					<div id="M13" class="col-12 col-lg-6 text-center card borde">
+									<h3 id="MOTOR_NAME_13">MOTOR 3</h3>	
+						<div class="row graficon ">
+							<div class="col-5 card align-items-end align-items-center">
+								<div class="flex-row justify-content-md-center">
+									<br>
+									<h4 id="MOTOR_TEMP_13" class="">100 °C</h4>
+									<br><br>
+									<img src="./image_05.png" height="110px" width="110px" alt="">
+								</div>
+							</div>
+							<div id="MOTOR_BARR_13" class="col-7 card " align="center">
+									<!-- Aqui ingreso a la grafica-->
+							</div>	
+						</div>	
+					</div>				
+					
+					<div id="M14" class="col-12 col-lg-6 text-center card borde">
+									<h3 id="MOTOR_NAME_14">MOTOR 4</h3>
+						<div class="row graficon">
+							<div class="col-5 card align-items-end align-items-center">
+								<div class="flex-row justify-content-md-center">
+									<br>
+									<h4 id="MOTOR_TEMP_14" class="">100 °C</h4>
+									<br><br>
+									<img src="./image_05.png" height="110px" width="110px"  alt="">
+									
+								</div>
+							</div>
+							<div id="MOTOR_BARR_14" class="col-7 card" align="center">
+									<!-- Aqui ingreso a la grafica-->
+							</div>	
+						</div>	
+					</div>					
+					
+				</div>	
+				</div>
+				
+				<div class="col-md-1"></div>
+		</div>
+		</div>	
+		
+	</div>
+	
+	
+	<div id="NUMBER" class="col-md-12 d-flex flex-row-reverse card-body">
+					
+		<nav aria-label="...">
+		  <ul class="pagination">
+			<li id="page-item_0P"><a class="page-link btn-lg">Previous</a></li>
+			<li id="page-item_01" class="page-item active "><a class="page-link btn-lg">1</a></li>
+			<li id="page-item_02"><a class="page-link btn-lg">2</a></li>
+		<!--	<li id="page-item_03"><a class="page-link btn-lg">3</a></li>-->
+			<li id="page-item_0N"><a class="page-link btn-lg">Next</a></li>
+		  </ul>
+		</nav>
+
+	</div>
+	
+</div>	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// JavaScript Document
+	
+var myIndex_0 = 1;
+var myIndex_1 = 3;
+var myIndex_2 = 1;
+var myIndex_3 = 0;	
+var myTemp = [0,0,0,0,0,0,0,0,0,0,0,0,0];
+var myTrace = [0,0,0,0,0,0,0,0,0,0,0,0,0];
+var myColor = ['gray','gray','gray','gray','gray','gray','gray','gray'];
+var info1 = [];
+var info2 = [0,0,0,0];
+var info3 = 0;
+var date3 = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+var date4 = '°C';
+	
+class MYClass_01{
+	constructor(temp,pain){
+		this.x = [''];
+		this.y = [temp];
+		this.width = 0.4;
+		this.marker = {
+			'color': pain,
+			'opacity': 0.6,
+			'line': {
+			'width': 3,
+			'color': 'black',
+			},
+		};
+		this.type = 'bar';
+	}
+};
+
+var parley = {
+	width: 250,
+	height: 250,
+	margin: { l: 25,r: 25,b: 10, t: 15, pad: 0},
+	yaxis: { 
+		range: [0, 60], 
+		dtick: 5,
+	},
+	shapes: [
+		{
+		  type: 'line',
+		  x0: -0.4,
+		  y0: 40,
+		  x1: 0.4,
+		  y1: 40,
+		  line: {
+			color: 'orange',
+			width: 3
+		  		},
+		},
+		{
+		  type: 'line',
+		  x0: -0.4,
+		  y0: 45,
+		  x1: 0.4,
+		  y1: 45,
+		  line: {
+			color: 'red',
+			width: 3
+		  		}
+		 },
+	],
+};
+var options = {
+	
+	displayModeBar : false,
+	modeBarButtonsToRemove: ['sendDataToCloud',
+	 'zoom2d', 'pan2d', 'select2d', 'lasso2d', 'zoomIn2d','toImage' , 'autoScale2d',
+	 'hoverClosestCartesian', 'hoverCompareCartesian','toggleSpikelines' ],
+	 displaylogo: false, 
+	 showTips: false,
+	 
+};	
+	
+$(document).ready(function(){
+
+	$('#page-item_01').click(function(){myIndex_0 = 1});
+	$('#page-item_02').click(function(){myIndex_0 = 2});
+	$('#page-item_0P').click(function(){
+		if(myIndex_0 > 1)
+			myIndex_0--;					   
+	});			
+	$('#page-item_0N').click(function(){
+		if(myIndex_0 < 2)
+			myIndex_0++;					   
+	});
+
+	$('.pagination').click(function(){
+		$('#page-item_01').removeClass("page-item active");
+		$('#page-item_02').removeClass("page-item active");
+		$('#page-item_03').removeClass("page-item active");
+		if(myIndex_0 == 1)
+		{
+		$('#page-item_01').addClass("page-item active");
+		}	
+		else if(myIndex_0 == 2)
+		{
+		$('#page-item_02').addClass("page-item active");
+		}
+		else if(myIndex_0 == 3)
+		{
+		$('#page-item_03').addClass("page-item active");
+		}
+		myIndex_1= myIndex_0*4;
+		$('#MOTOR_NAME_11').text("MOTOR "+ (myIndex_1-3));
+		$('#MOTOR_NAME_12').text("MOTOR "+ (myIndex_1-2));
+		$('#MOTOR_NAME_13').text("MOTOR "+ (myIndex_1-1));
+		$('#MOTOR_NAME_14').text("MOTOR "+ (myIndex_1-0));
+	});
+	
+	
+	setInterval( function(){
+		myIndex_2 = (myIndex_0*4)-3;
+
+			var resp = [];
+			resp[0] = Math.floor(Math.random() * 60);		
+			resp[1] = Math.floor(Math.random() * 45);	
+			resp[2] = Math.floor(Math.random() * 61);	
+			resp[3] = Math.floor(Math.random() * 100);	
+
+			for(var i=0;i<4;i++)
+			{
+				myTemp[i]=resp[i];
+				if((resp[i]<41)&&(resp[i]>=0))
+					myColor[i] = 'green';
+				else if((resp[i]<46)&&(resp[i]>40))
+					myColor[i] = 'yellow';
+				else if((resp[i]<101)&&(resp[i]>45))
+					myColor[i] = 'red';
+				else
+					myColor[i] = 'gray';
+				myTrace[i] = [new MYClass_01(resp[i],myColor[i])];
+
+				if((myTemp[i]<=46)&&(myTemp[i]>40))
+				{
+					var date1 = new Date();
+					var date2 = date1.getDate() + "/" + date3[(date1.getMonth()+1)] + "/" + (date1.getFullYear()-2000) + " " + date1.getHours() + ":" + date1.getMinutes() + " HR";
+					$('#DATE_1').text(date2);
+					$('#FAULT_1').text("LV2 MOTOR "+(i+1) +": NIVEL DE TEMPERATURA ANORMAL EN MOTOR");
+					$('#B_FAULT_1').css("background-color", 'yellow');
+					$('#B_FAULT_2').css("background-color", 'yellow');
+				}
+				else if(myTemp[i]>45)
+				{
+					var date1 = new Date();
+					var date2 = date1.getDate() + "/" + date3[(date1.getMonth()+1)] + "/" + (date1.getFullYear()-2000) + " " + date1.getHours() + ":" + date1.getMinutes() + " hrs";
+					$('#DATE_1').text(date2);
+					$('#FAULT_1').text("LV1 MOTOR "+(i+1) +": NIVEL DE TEMPERATURA EXCEDIDO EN EL MOTOR");
+					$('#B_FAULT_1').css("background-color", 'red');
+					$('#B_FAULT_2').css("background-color", 'red');
+				}
+					
+			}
+			
+			if((myTemp[0]<60)&&(myTemp[1]<60)&&(myTemp[2]<60)&&(myTemp[3]<60))
+			{
+				$('#DATE_1').text(" ");
+				$('#FAULT_1').text(" ");
+				$('#B_FAULT_1').css("background-color", 'white');
+				$('#B_FAULT_2').css("background-color", 'white');
+			}
+			
+			
+
+		if(myIndex_0 == 2)
+			date4 = " Amps";
+		
+		else
+			date4 = " °C";
+
+		$('#M11').css("background-color", myColor[0]);
+		$('#M12').css("background-color", myColor[1]);
+		$('#M13').css("background-color", myColor[2]);
+		$('#M14').css("background-color", myColor[3]);
+
+		$('#MOTOR_TEMP_11').text(myTemp[0]+date4);
+		$('#MOTOR_TEMP_12').text(myTemp[1]+date4);
+		$('#MOTOR_TEMP_13').text(myTemp[2]+date4);
+		$('#MOTOR_TEMP_14').text(myTemp[3]+date4);
+		
+		Plotly.newPlot('MOTOR_BARR_11',myTrace[0],parley,options);		
+		Plotly.newPlot('MOTOR_BARR_12',myTrace[1],parley,options);	
+		Plotly.newPlot('MOTOR_BARR_13',myTrace[2],parley,options);
+		Plotly.newPlot('MOTOR_BARR_14',myTrace[3],parley,options);
+		
+		
+	},1000);
+
+});
+</script>
