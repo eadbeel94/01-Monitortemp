@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <link rel="shortcut icon" href="./favicon.ico" />
+	<title>GRAPHS</title>
+	<!--
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  -->
+  <!--Load local CDN-->
+  <link rel="stylesheet" href="/css/b4/bootstrap.css">
+
+  <!--Load external CDN-->
+	<script src="http://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	
+	<style>
+		.borde{height: 50px}
+		.color4{height: 500px; }
+		.graficon{height: 375px};
+		.color5{font-size: 40px; color: rgba(17,85,104,0.5);}
+	</style>
+		  
+</head>
+<body class="">
+
+  <div class="container-fluid">
+    <br>
+    <!--Navbar-->
+    <div id="TITLE_03" class="row">
+
+      <div class="col-12 card">
+        <div class="row justify-content-around">
+          <div class="col-md-3">
+            <img src="./Diapositiva3.png" height="70px" class="float-left" alt="">
+          </div>
+          <div class="col-md-6 card align-self-center text-center">
+            <h3>GRAFICAS</h3>
+          </div>
+          <div class="col-md-2">
+            <img src="./Diapositiva4.png" height="75px" class="float-right" alt="">
+          </div>	
+        </div>
+      </div>	
+
+    </div>
+    <br>
+    <!--Intermediate panel-->
+    <div id="SECTION_03" class="row">
+      <!--left group buttons-->
+      <div id="LEFT_03" class="col-lg-2 card">
+        <div class="btn-group-vertical d-flex flex-column">
+            <br>
+          <a class="btn btn-outline-secondary overflow-auto" role="button" href="../">INICIO</a>
+          <a class="btn btn-outline-secondary overflow-auto" role="button" href="./">GRAFICAS</a>
+          <a class="btn btn-outline-secondary overflow-auto" role="button" href="../history/">HISTORIAL</a>
+          <a class="btn btn-outline-secondary overflow-auto" role="button" href="../contacts/">CONTACTO</a>
+        </div>
+        <br>
+      </div>
+      <!--All 4 graphs-->
+      <div id="RIGHT_03" class="col-lg-10 card">
+        
+        <div class="row align-items-center" >
+  
+          <div class="col-lg-6 graficon card">
+            <h5 align="center">MOTOR 1</h5>
+            <div id="GRAPH_1" align="center" class="overflow-auto"></div> 
+          </div>					
+
+          <div class="col-lg-6 graficon card">
+            <h5 align="center">MOTOR 2</h5>
+            <div id="GRAPH_2" align="center" class="overflow-auto"></div> 
+          </div>				
+          
+          <div class="col-lg-6 card graficon">
+            <h5 align="center">MOTOR 3</h5>
+            <div id="GRAPH_3" align="center" class="overflow-auto"></div> 
+          </div>				
+
+          <div class="col-lg-6 card graficon">
+            <h5 align="center">MOTOR 4</h5>
+            <div id="GRAPH_4" align="center" class="overflow-auto"></div> 
+          </div>				
+          
+        </div>
+
+      </div>	
+
+    </div>
+  </div>	
+</body>
+<script>
+  /*-------------- Create class and complements for plotly bar graph --------------*/
+  var parley = {
+    responsive: true,
+    width: 625,
+    height: 325,
+    margin: { l: 30,r: 10,b: 120, t: 10, pad: 1 },
+    xaxis:{
+      range: [0, 21],
+      dtick: 1,
+    },
+    yaxis: { 
+      range: [0, 101],
+      dtick: 10,
+  
+    },
+  };	
+
+  class MYGraph_01{
+    constructor(infox,infoy){
+      this.x = infox;
+      this.y = infoy;
+      this.type = 'scatter';
+    }
+  };	
+  /*-------------- Create an inicialize variables --------------*/ /*-------------- Create an inicialize variables --------------*/
+  var info_y0 = [];
+  var info_y1 = [];
+  var info_y2 = [];	
+  var info_y3 = [];
+  var info_x0 = [];
+  var onlyDate = [''];
+  var myMnth = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  /*-------------- Inicialize Jquery code --------------*/  
+  $(document).ready(function(){
+    //Update graph value each second
+    setInterval( function(){
+      //Generate random value in 4 aaray with 21 places
+      for(var i=0;i<21;i++){
+        var j =  (i)+(21)-(2*i);
+        info_y0[i] = Math.floor(Math.random() * 100);	
+        info_y1[i] = Math.floor(Math.random() * 100);	
+        info_y2[i] = Math.floor(Math.random() * 100);	
+        info_y3[i] = Math.floor(Math.random() * 100);	
+        onlyDate = new Date(i);
+        info_x0[i] = String((i+1) +".- "+onlyDate.getHours()+ "hr " + onlyDate.getDate() +"/" + myMnth[(onlyDate.getMonth())]);
+      }		
+      //Create object using class
+      var trace0 = [new MYGraph_01(info_x0,info_y0)];
+      var trace1 = [new MYGraph_01(info_x0,info_y1)];
+      var trace2 = [new MYGraph_01(info_x0,info_y2)];
+      var trace3 = [new MYGraph_01(info_x0,info_y3)];
+      //Create 4 graph
+      Plotly.newPlot('GRAPH_1',trace0,parley);
+      Plotly.newPlot('GRAPH_2',trace1,parley);
+      Plotly.newPlot('GRAPH_3',trace2,parley);
+      Plotly.newPlot('GRAPH_4',trace3,parley);
+      //Update each second
+    },1000);	
+  });	
+</script>
+</html>
+
+
+
+

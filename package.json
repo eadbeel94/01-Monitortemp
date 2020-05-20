@@ -1,0 +1,23 @@
+{
+  "name": "01_MONITOR_TEMP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eadbeel94/01-Monitortemp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eadbeel94/01-Monitortemp/issues"
+  },
+  "homepage": "https://github.com/eadbeel94/01-Monitortemp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
