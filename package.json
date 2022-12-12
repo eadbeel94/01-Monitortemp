@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/eadbeel94/01-Monitortemp#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
